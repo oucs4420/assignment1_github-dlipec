@@ -15,7 +15,6 @@ int main( int argc, char* argv[] )
 {
     std::cout << "program: ./filesize" << '\n';
 
-    // just to get you started, this is how to refer to the arguments that were passed
     for (int arg = 1; arg < argc; ++arg) {
         string filename;
         filename.assign(argv[arg]);
@@ -35,7 +34,6 @@ int countLines(string filename) {
     if (!file.is_open())
         return -1;
 
-    //getline(file, line);
     while (getline(file, line))       
         lines++;
         
