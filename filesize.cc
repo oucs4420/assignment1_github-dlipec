@@ -13,35 +13,31 @@ int countLines(string filename);
 
 int main( int argc, char* argv[] )
 {
-    std::cout << "./filesize" << '\n';
+    std::cout << "program: ./filesize" << '\n';
 
     // just to get you started, this is how to refer to the arguments that were passed
     for (int arg = 1; arg < argc; ++arg) {
         string filename;
         filename.assign(argv[arg]);
-        std::cout << argv[arg] << ": " << countLines(filename) << '\n' ;
+        std::cout << " " << argv[arg] << ": " << countLines(filename) << '\n';
     }
 
     exit(0); // this means that the program executed correctly!
 }
 
 int countLines(string filename) {
-    int lines = -1;
+    int lines = 0;
     string line;
 
     ifstream file;
     file.open(filename);
 
-    if (!file.is_open()) {
+    if (!file.is_open())
         return -1;
-        
-    }
 
-    do {
+    //getline(file, line);
+    while (getline(file, line))       
         lines++;
-        getline(file, line);
-    } while (!file.eof());
-
+        
     return lines;
-
 }
